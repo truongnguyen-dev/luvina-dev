@@ -1,3 +1,7 @@
+import 'package:ecommerce/home-elements/avatar.dart';
+import 'package:ecommerce/home-elements/filter.dart';
+import 'package:ecommerce/home-elements/notice.dart';
+import 'package:ecommerce/home-elements/scan.dart';
 import 'package:ecommerce/myConstant.dart';
 import 'package:flutter/material.dart';
 
@@ -6,111 +10,27 @@ class Spacebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double sizeIcon = 25;
-    final double sizeAva = 35;
+    final double sizeAva = 30;
     final double marginLeftRight = 10.0;
-    final double sizeIconFilter = 20;
+    
 
     final Text title = Text("CATALOG", style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold, color: Colors.lightBlue));
 
-    final GestureDetector sideLeft =  GestureDetector(
-      child: Container(
-       width:sizeAva,
-       height: sizeAva,
-       margin: EdgeInsets.only(left: marginLeftRight),
-       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        image: DecorationImage(
-        image:AssetImage("assets/images/robo.jpg"), 
-        fit:BoxFit.cover
-         ),
-       )
-      ),onTap:(){
-       print("you clicked me");
-      }
-    );
-
-
-    final GestureDetector sideRight =  GestureDetector(
-      child: Container(
-       width:sizeIcon,
-       height: sizeIcon,
-       margin: EdgeInsets.only(right: marginLeftRight),
-       decoration: BoxDecoration(
-          image: DecorationImage(
-          image:AssetImage("assets/icons/noti.png"), 
-          fit:BoxFit.fill
-         ),
-       )
-      ),onTap:(){
-       print("you clicked me");
-      }
-    );
-
-    Row target = Row(
+    Row navUp = Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                          sideLeft,
+                          Avatar(),
                           title,
-                          sideRight
+                          Notice()
                       ],
                     );
 
-
-    Padding scan = Padding(padding: EdgeInsets.only(left: 15), 
-        child: Row(
-            children: [
-              GestureDetector(
-                child: Container(
-                width:sizeIconFilter,
-                height: sizeIconFilter,
-                margin: EdgeInsets.only(left: marginLeftRight),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                  image:AssetImage("assets/icons/scan.png"), 
-                  fit:BoxFit.cover
-                  ),
-                )
-              ),onTap:(){
-              print("you clicked me");
-              }
-              ),
-              SizedBox(width: 8,),
-              Text("Scan product Tag")
-            ],
-          )
-        );
-
-    Padding filter = Padding(padding: EdgeInsets.only(right: 30), 
-        child: Row(
-                children: [
-                  GestureDetector(
-                    child: Container(
-                    width:sizeIconFilter,
-                    height: sizeIconFilter,
-                    margin: EdgeInsets.only(left: marginLeftRight),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                      image:AssetImage("assets/icons/filter.png"), 
-                      fit:BoxFit.cover
-                      ),
-                    )
-                  ),onTap:(){
-                  print("you clicked me");
-                  }
-                  ),
-                  SizedBox(width: 8,),
-                  Text("Filter")
-                ],
-              ),
-          );
+    Row navDown = Row(mainAxisAlignment: MainAxisAlignment.spaceBetween ,children: [ Scan(),Filter()],);
 
     FlexibleSpaceBar main = FlexibleSpaceBar(
                 background: Container(
                   decoration: BoxDecoration(
-                    color: MyConstant.myColor
+                    // color: MyConstant.myColor
                   ),
                   child: Container(
                     padding: const EdgeInsets.all(16.0),
@@ -118,9 +38,9 @@ class Spacebar extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(height: 50,),
-                        target,
+                        navUp,
                         SizedBox(height: 50,),
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween ,children: [ scan,filter],)
+                        navDown
                       ],
                     ),
                   ),

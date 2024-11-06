@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MyConstant {
-  static Color myColor = Colors.grey.shade400;
+  static Color myColor = Colors.grey.shade200;
+  static double sizeIcon = 20;
+  static double sizeIconChild = 12;
+  static double paddingGrid = 3;
   // static Icon myIcon = Icon(
   //   Icons.add,
   //   color: Colors.green,

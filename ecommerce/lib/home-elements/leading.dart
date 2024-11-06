@@ -1,32 +1,64 @@
+import 'package:ecommerce/myConstant.dart';
 import 'package:flutter/material.dart';
 
 class MyLeading extends StatelessWidget {
-  const MyLeading({super.key});
+   MyLeading({super.key});
+
+  static int results_num = 200;
 
   @override
   Widget build(BuildContext context) {
-    MaterialButton btn = MaterialButton(
-        padding: const EdgeInsets.all(8.0),
-        textColor: Colors.white,
-        splashColor: Colors.red,
-        elevation: 8.0,
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('https://lh3.googleusercontent.com/a-/AOh14GhFJOIlbtl5UfQ1ySN76w2_sC3UGVXH2xOE1xsH=k-s64'), //some asset image
-                fit: BoxFit.cover),
-          ),
-          child: const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: SizedBox(),
-          ),
-        ),
-        // ),
-        onPressed: () {
-          print('Tapped');
-        },
-      );
 
-      return btn;
+Padding results = Padding(padding: EdgeInsets.only(left: 15), 
+        child: Row(
+            children: [
+              GestureDetector(
+                child: Text( "Results (" + results_num.toString() + ")",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+              ),onTap:(){
+              print("you clicked me");
+              }
+              )
+            ],
+          )
+  );
+
+
+  Padding newest = Padding(padding: EdgeInsets.only(right: 30), 
+        child: Row(
+                children: [
+                  GestureDetector(
+                    child: Container(
+                    width:MyConstant.sizeIcon,
+                    height: MyConstant.sizeIcon,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                      image:AssetImage("assets/icons/sort.png"), 
+                      fit:BoxFit.cover
+                      ),
+                    )
+                  ),onTap:(){
+                  print("you clicked me");
+                  }
+                  ),
+                  SizedBox(width: 8,),
+                  Text("Newest")
+                ],
+              ),
+          );
+
+  Row main = Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // SizedBox(height: 50,),
+                        results,
+                        // SizedBox(height: 50,),
+                        newest
+                      ],
+                    );
+
+
+      return main;
   }
 }
