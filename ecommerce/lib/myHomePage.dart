@@ -1,30 +1,52 @@
 import 'package:ecommerce/home-elements/leading.dart';
 import 'package:ecommerce/home-elements/spaceBar.dart';
 import 'package:ecommerce/home-elements/v-item/thumbnail.dart';
+import 'package:ecommerce/models/Item.dart';
 import 'package:ecommerce/myConstant.dart';
+import 'package:ecommerce/providers/Items.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
 
+class MyHomePage extends StatefulWidget {
+@override
+  State<MyHomePage> createState() {
+    return MyHomePageState();
+  }
+}
+
+class MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    super.initState();
+    Provider.of<ItemProvider>(context, listen: false).getItems();
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      
+    });
+  }
+
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
-    double heightBox = (height/2.7)+3;
+    double heightBox = (height/2.7)+32;
+    final _provider = Provider.of<ItemProvider>(context);
 
-    GridView items = GridView.builder(
-          itemCount: 7,
+    Widget itemGrid () {
+      return _provider.items.length > 0 ? GridView.builder(
+          itemCount: _provider.items.length,
           padding:EdgeInsets.all(MyConstant.paddingGrid),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisExtent: heightBox, 
           ),
-          itemBuilder: (context, int index) {
-              return Thumbnail();
+          itemBuilder: (context, int i) {
+              return Thumbnail(
+                item: _provider.items[i],
+                );
             },
-    );
-
+      ) : Container();
+    }
 
 
     return Scaffold(
@@ -42,12 +64,12 @@ class MyHomePage extends StatelessWidget {
               forceElevated: innerBoxIsScrolled,
               bottom: AppBar(
                 flexibleSpace: MyLeading(),
-                toolbarHeight: 25.0,
+                toolbarHeight: 35.0,
               ),
             ),
           ];
         },
-        body: items,
+        body: itemGrid(),
       ),
     );
   }

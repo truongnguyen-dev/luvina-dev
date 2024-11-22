@@ -51,9 +51,7 @@ Padding results = Padding(padding: EdgeInsets.only(left: 15),
   Row main = Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // SizedBox(height: 50,),
                         results,
-                        // SizedBox(height: 50,),
                         newest
                       ],
                     );

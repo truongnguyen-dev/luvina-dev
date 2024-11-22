@@ -1,3 +1,4 @@
+import 'package:ecommerce/commons/longBtnNav.dart';
 import 'package:ecommerce/home-elements/avatar.dart';
 import 'package:ecommerce/home-elements/filter.dart';
 import 'package:ecommerce/home-elements/notice.dart';
@@ -25,7 +26,17 @@ class Spacebar extends StatelessWidget {
                       ],
                     );
 
-    Row navDown = Row(mainAxisAlignment: MainAxisAlignment.spaceBetween ,children: [ Scan(),Filter()],);
+    Widget navDown = Container(
+      height: 50,
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      color: Colors.white,
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween ,
+      children: [ 
+        Longbtnnav(icon: "assets/icons/scan.png", title: "Scan product Tag",),
+        Longbtnnav(icon: "assets/icons/filter.png", title: "Filter",)
+      ]
+      ),
+    );
 
     FlexibleSpaceBar main = FlexibleSpaceBar(
                 background: Container(
@@ -33,14 +44,15 @@ class Spacebar extends StatelessWidget {
                     // color: MyConstant.myColor
                   ),
                   child: Container(
-                    padding: const EdgeInsets.all(16.0),
+                    // padding: const EdgeInsets.all(16.0),
                     alignment: Alignment.centerLeft,
                     child: Column(
                       children: [
                         SizedBox(height: 50,),
                         navUp,
-                        SizedBox(height: 50,),
-                        navDown
+                        SizedBox(height: 10,),
+                        navDown,
+                        SizedBox(height: 40,),
                       ],
                     ),
                   ),

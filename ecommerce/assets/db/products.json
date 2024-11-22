@@ -1,0 +1,88 @@
+{
+    "items": [
+      {
+        "id": 1,
+        "name": "Primary vs. secondary",
+        "brand": "Louis Vuiton",
+        "category": "category 1",
+        "imageUrl": ["assets/images/black.jpg", "assets/images/child.jpg", "assets/images/couple.jpg"],
+        "minPrice": 8000,
+        "maxPrice": 15014,
+        "totalComment": 40,
+        "createdDate": "2024/11/20",
+        "inStock": 0,
+        "tags": ["AW2023", "Pre-Order", "announcing", "result"],
+        "description": "Since last week, Donald Trump has been announcing his planned Cabinet member nominations. Many people, including a number of Republican politicians and commentators in conservative media (including Fox News) have expressed great surprise at the lack of qualifications of most of the nominations, and some of them seem antithetical to the positions. For example, he wants former Congressman Matt Gaetz as Attorney General, even though he has been under investigation for ethics violations, soliciting prostitution, and Russia and Vladimir Putin."
+      },
+      {
+        "id": 2,
+        "name": "SR and PSR data can be mixed",
+        "brand": "Gucci",
+        "category": "category 2",
+        "imageUrl": ["assets/images/handsome.jpg", "assets/images/man.jpg", "assets/images/pants1.jpg"],
+        "minPrice": 3300,
+        "maxPrice": 6689,
+        "totalComment": 12,
+        "createdDate": "2024/9/12",
+        "inStock": 1,
+        "tags": ["Evil", "Couple", "Online Shared"],
+        "description": "Sorry for my very beginner question, I am trying to teach my self Flutter so i am doing some tutorials from youtube and somehow i get Invalid argument(s) error even though i have typed exactly as it is in the tutorial, I tried to debug by printing and first it prints null and then it prints the list with json objects, but when i print mydata[0] it prints The method '[]' was called on null.."
+      },
+      {
+        "id": 3,
+        "name": "Collision avoidance system",
+        "brand": "Lecoq Spofy",
+        "category": "category 3",
+        "imageUrl": ["assets/images/clothes1.jpg", "assets/images/robo.jpg", "assets/images/clothes2.jpg"],
+        "minPrice": 9981,
+        "maxPrice": null,
+        "totalComment": 66,
+        "createdDate": "2024/1/13",
+        "inStock": 0,
+        "tags": ["Gavatrol", "Optimus", "Online Shared", "secondary"],
+        "description": "20I am trying to read a local json file named catalog.json I wrote all the nessessary codes but it's showing this error lateinitializationError: Field 'catalogdata' has not been initialized. then i tried by initializing the 'catalogdata' variable but then it shows that 'catalogdata' variable is empty . I dont know how to solve it . Please help me."
+      },
+      {
+        "id": 4,
+        "name": "Weather radar",
+        "brand": "Under Armor",
+        "category": "category 4",
+        "imageUrl": ["assets/images/clothes3.jpg", "assets/images/clothes4.jpg", "assets/images/clothes5.jpg"],
+        "minPrice": 7529,
+        "maxPrice": null,
+        "totalComment": 333,
+        "createdDate": "2023/10/16",
+        "inStock": 1,
+        "tags": ["Nike", "Adidas"],
+        "description": "While using late before variables make sure that, the variable must be initialized later. Otherwise, you can encounter a runtime error when the variable is used.If you didn't add the correct location catalog.json in pubsec.yaml your variable catalog didn't gets the correct value so the late variable is not initialized."
+      },
+      {
+        "id": 5,
+        "name": "Presentation",
+        "brand": "arguments you add",
+        "category": "constructor",
+        "imageUrl": ["assets/images/clothes6.jpg", "assets/images/clothes7.jpg", "assets/images/clothes8.jpg"],
+        "minPrice": 6678,
+        "maxPrice": 9981,
+        "totalComment": 1412,
+        "createdDate": "2024/11/06",
+        "inStock": 1,
+        "tags": ["handle", "directly", "WidgetB", "String", "Under"],
+        "description": "It's possible, but i believe it would be a better approach to save objects somewhere. Otherwise, you can encounter a runtime error when the variable is used.If you didn't add the correct location catalog.json in pubsec.yaml your variable catalog didn't gets the correct value so the late variable is not initialized."
+      },
+      {
+        "id": 6,
+        "name": "multiple arguments",
+        "brand": "always best",
+        "category": "Object Instead",
+        "imageUrl": ["assets/images/clothes9.jpg", "assets/images/clothes10.jpg", "assets/images/clothes11.jpg", "assets/images/clothes12.jpg"],
+        "minPrice": 13,
+        "maxPrice": 1919,
+        "totalComment": 1412,
+        "createdDate": "2019/12/11",
+        "inStock": 1,
+        "tags": ["handle", "directly", "WidgetB", "String", "Under"],
+        "description": "I tried to provide a simple example, if it could be helpful to anyone, because i was facing the same error after a lots of trials it got solved."
+      }
+    ]
+  }

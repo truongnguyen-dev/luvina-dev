@@ -7,17 +7,18 @@ class Scan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double marginLeftRight = 10.0;
+    double width = MediaQuery.sizeOf(context).width;
+    double height = MediaQuery.sizeOf(context).height;
 
-    Padding scan = Padding(padding: EdgeInsets.only(left: 15), 
-        child: Row(
+    ListView scan = ListView(
+          shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
             children: [
               GestureDetector(
                 child: Container(
-                width:MyConstant.sizeIcon,
-                height: MyConstant.sizeIcon,
-                margin: EdgeInsets.only(left: marginLeftRight),
+                width:MyConstant.sizeIconMiddle,
+                height: MyConstant.sizeIconMiddle,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                   image:AssetImage("assets/icons/scan.png"), 
                   fit:BoxFit.cover
@@ -28,11 +29,20 @@ class Scan extends StatelessWidget {
               }
               ),
               SizedBox(width: 8,),
-              Text("Scan product Tag")
+              Text("Scan product Tag", style: TextStyle(fontSize: MyConstant.chilTitleSize), )
             ],
-          )
-        );
+          );
 
-      return scan;
+      return Container(
+        height: 30,
+        width: width*0.35,
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+        decoration: BoxDecoration(
+          color: MyConstant.greyTxtLightColor,
+          border: Border.all(width: 0.5, color: MyConstant.greyTxtColor.withOpacity(0.3)),
+                  borderRadius: BorderRadius.circular(3),
+                  ),
+        child: Align(child: scan, alignment: Alignment.center,),
+      );
   }
 }

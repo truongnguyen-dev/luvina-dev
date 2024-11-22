@@ -1,25 +1,31 @@
 import 'package:ecommerce/home-elements/v-item/detail/product.dart';
 import 'package:ecommerce/myHomePage.dart';
+import 'package:ecommerce/providers/Items.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ItemProvider()),
+      ],
+      child: const MainApp(),
+    )
+    );
 }
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
-  static const String _title = 'Flutter Code Sample';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
       theme: ThemeData(
           useMaterial3: true,
       ),
-      home: MyHomePage(),
+      home: Scaffold(body: MyHomePage(),),
     );
   }
 }

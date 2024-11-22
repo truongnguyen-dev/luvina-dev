@@ -1,13 +1,20 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce/models/Item.dart';
 import 'package:flutter/material.dart';
 
 
 class BgUp extends StatelessWidget {
 
+    List<dynamic> imgs;
+    BgUp({super.key, 
+    required this.imgs,
+
+    });
+
   CarouselSliderController carouselController = CarouselSliderController();
 
-  List<String> featuredImages = [
+  List<dynamic> images = [
     'assets/images/child.jpg',
     'assets/images/black.jpg',
     'assets/images/couple.jpg'
@@ -15,6 +22,11 @@ class BgUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    if (imgs.length > 0) {
+      images = this.imgs;
+    }
+
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
 
@@ -112,7 +124,7 @@ class BgUp extends StatelessWidget {
               enlargeCenterPage: false,
                 autoPlay: true,
               ),
-              items: featuredImages.map((featuredImage) {
+              items: images.map((featuredImage) {
                 return image_s(featuredImage);
               }).toList(),
             ),
