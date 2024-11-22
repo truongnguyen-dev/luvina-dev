@@ -54,12 +54,12 @@ class ItemrecommenState extends State<Itemrecommen> {
                     ),
               ),
         onTap: () {
-          // Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) {
-          //       return Product(item: this.item,);
-          //     }),
-          //   );
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return Product(item: t_item);
+              }),
+            );
         },
       );
       }
