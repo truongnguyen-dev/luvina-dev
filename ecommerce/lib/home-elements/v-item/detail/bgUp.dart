@@ -1,5 +1,8 @@
 
+import 'dart:io';
+
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce/commons/fullScreen.dart';
 import 'package:ecommerce/models/Item.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +10,7 @@ import 'package:flutter/material.dart';
 class BgUp extends StatelessWidget {
 
     List<dynamic> imgs;
+
     BgUp({super.key, 
     required this.imgs,
 
@@ -31,7 +35,7 @@ class BgUp extends StatelessWidget {
     double height = MediaQuery.sizeOf(context).height;
 
     Widget image_s(featuredImage) {
-      return Container(
+      Widget img = Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(featuredImage),
@@ -39,6 +43,26 @@ class BgUp extends StatelessWidget {
                     ),
                   ),
                 );
+
+
+                return GestureDetector(
+                  child: img,
+          onTap: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                opaque: false,
+                barrierColor: Colors.black,
+                pageBuilder: (BuildContext context, _, __) {
+                  return FullScreenPage(
+                    child: Image.asset(featuredImage),
+                    dark: true,
+                  );
+                },
+              ),
+            );
+          },
+        );
     }
 
     Align nextBtn = Align(

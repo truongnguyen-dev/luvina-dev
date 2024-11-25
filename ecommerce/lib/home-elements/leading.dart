@@ -1,13 +1,17 @@
+import 'package:ecommerce/buttons/newestBtn.dart';
 import 'package:ecommerce/myConstant.dart';
+import 'package:ecommerce/providers/Items.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyLeading extends StatelessWidget {
    MyLeading({super.key});
 
-  static int results_num = 200;
-
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ItemProvider>(context, listen: false);
+  int results_num = provider.items.length;
+
 
 Padding results = Padding(padding: EdgeInsets.only(left: 15), 
         child: Row(
@@ -23,36 +27,11 @@ Padding results = Padding(padding: EdgeInsets.only(left: 15),
           )
   );
 
-
-  Padding newest = Padding(padding: EdgeInsets.only(right: 30), 
-        child: Row(
-                children: [
-                  GestureDetector(
-                    child: Container(
-                    width:MyConstant.sizeIcon,
-                    height: MyConstant.sizeIcon,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                      image:AssetImage("assets/icons/sort.png"), 
-                      fit:BoxFit.cover
-                      ),
-                    )
-                  ),onTap:(){
-                  print("you clicked me");
-                  }
-                  ),
-                  SizedBox(width: 8,),
-                  Text("Newest")
-                ],
-              ),
-          );
-
   Row main = Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         results,
-                        newest
+                        Newestbtn()
                       ],
                     );
 

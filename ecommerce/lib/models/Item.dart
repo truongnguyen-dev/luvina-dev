@@ -5,10 +5,10 @@ class Item {
      String? brand;
      String? category;
      List<dynamic>? imageUrl;
-     double? minPrice;
+     double minPrice;
      double? maxPrice;
      int? totalComment;
-     String? createdDate;
+     DateTime createdDate;
      int? inStock;
      List<dynamic>? tags;
      String? description;
@@ -19,10 +19,10 @@ class Item {
          this.brand,
          this.category,
          this.imageUrl,
-         this.minPrice,
+         required this.minPrice,
          this.maxPrice,
          this.totalComment,
-         this.createdDate,
+         required this.createdDate,
          this.inStock,
         this.tags ,
          this.description,
@@ -38,7 +38,7 @@ class Item {
               minPrice: json['minPrice'],
               maxPrice: json['maxPrice'],
               totalComment: json['totalComment'],
-              createdDate: json['createdDate'],
+              createdDate: DateTime.parse(json['createdDate']),
               inStock: json['inStock'],
               tags: json['tags'],
               description: json['description']

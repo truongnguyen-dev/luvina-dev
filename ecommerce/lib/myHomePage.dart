@@ -30,7 +30,7 @@ class MyHomePageState extends State<MyHomePage> {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
     double heightBox = (height/2.7)+32;
-    final _provider = Provider.of<ItemProvider>(context);
+    final _provider = Provider.of<ItemProvider>(context, listen: true);
 
     Widget itemGrid () {
       return _provider.items.length > 0 ? GridView.builder(
