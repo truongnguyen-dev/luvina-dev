@@ -16,7 +16,10 @@ class Newestbtn extends StatefulWidget {
 
 class _NewestbtnState extends State<Newestbtn> {
 
+  final ScrollController _controller = ScrollController();
+
   void func (Sorter selected) {
+      Provider.of<ItemProvider>(context, listen: false).switchTop();
       Provider.of<ItemProvider>(context, listen: false).reSort(selected);
   }
 

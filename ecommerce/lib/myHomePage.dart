@@ -16,13 +16,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomePageState extends State<MyHomePage> {
+  ScrollController _controller = ScrollController();
+
   @override
   void initState() {
     super.initState();
+    
     Provider.of<ItemProvider>(context, listen: false).getItems();
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      
+      // Provider.of<ItemProvider>(context, listen: false).setScroll(_controller);
     });
   }
 
@@ -30,10 +33,11 @@ class MyHomePageState extends State<MyHomePage> {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
     double heightBox = (height/2.7)+32;
-    final _provider = Provider.of<ItemProvider>(context, listen: true);
+    final _provider = Provider.of<ItemProvider>(context);
 
     Widget itemGrid () {
       return _provider.items.length > 0 ? GridView.builder(
+          controller: _provider.controllerItems,
           itemCount: _provider.items.length,
           padding:EdgeInsets.all(MyConstant.paddingGrid),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

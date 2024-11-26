@@ -15,6 +15,11 @@ class ItemProvider with ChangeNotifier {
   List<Item> _recommendations = [];
   List<Item> get items => _items;
   List<Item> get recommendations => _recommendations;
+  ScrollController _controllerItems = ScrollController();
+  ScrollController get controllerItems => _controllerItems;
+
+  bool _scrolltop = false;
+  bool get scrolltop => _scrolltop;
 
   // Sort have 4 value ("newest", "oldest", "lowest","highest",)
   List<Sorter> _sorts = [
@@ -25,9 +30,10 @@ class ItemProvider with ChangeNotifier {
   ];
   List<Sorter> get sorts => _sorts;
 
-  Future getJson() {
-    return rootBundle.loadString('db/products.json');
-  }
+  void switchTop () => _scrolltop = true;
+
+  Future getJson() => rootBundle.loadString('db/products.json');
+
 
   Future getItems() async {
     final d = await rootBundle.loadString('db/products.json');
@@ -98,5 +104,13 @@ class ItemProvider with ChangeNotifier {
     }
 
       notifyListeners();
+  }
+
+  void scrollUp() {
+    _controllerItems!.animateTo(
+      _controllerItems!.position.minScrollExtent,
+      duration: Duration(seconds: 2),
+      curve: Curves.fastOutSlowIn,
+    );
   }
 }
